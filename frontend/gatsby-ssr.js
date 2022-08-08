@@ -4,3 +4,5 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
+ import RootWrapper from "./src/components/ui/root-wrapper";
+ export const  wrapRootElement = RootWrapper

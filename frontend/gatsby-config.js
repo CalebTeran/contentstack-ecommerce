@@ -2,7 +2,7 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `VAR-X`,
+    title: `Calub shop :)`,
     description: `The premier developer clothing line. By developers, for developers. High quality, custom-designed shirts, hats, and hoodies.`,
     author: `Calub tD`,
     keywords: [
