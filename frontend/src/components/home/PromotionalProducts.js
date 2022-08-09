@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
-//import Button from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
-//import Carousel from "react-spring-3d-carousel"
+import Loadable from "@loadable/component"
 import clsx from "clsx"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import { Link, useStaticQuery, graphql } from "gatsby"
@@ -11,7 +11,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import promoAdornment from "../../images/promo-adornment.svg"
-//import explore from "../../images/explore.svg"
+import explore from "../../images/explore.svg"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -83,6 +83,7 @@ const useStyles = makeStyles(theme => ({
 export default function PromotionalProducts() {
   const classes = useStyles()
   const [selectedSlide, setSelectedSlide] = useState(0)
+  const Carousel = Loadable(() => import("react-spring-3d-carousel"))
 
   const matchesMD = useMediaQuery(theme => theme.breakpoints.down("md"))
 
@@ -154,30 +155,29 @@ export default function PromotionalProducts() {
   })
 
   return (
-    <p>PromotionalProducts</p>
-    // <Grid
-    //   container
-    //   justify={matchesMD ? "space-around" : "space-between"}
-    //   alignItems="center"
-    //   classes={{ root: classes.mainContainer }}
-    //   direction={matchesMD ? "column" : "row"}
-    // >
-    //   <Grid item classes={{ root: classes.carouselContainer }}>
-    //     {typeof window !== "undefined" ? (
-    //       <Carousel slides={slides} goToSlide={selectedSlide} />
-    //     ) : null}
-    //   </Grid>
-    //   <Grid item classes={{ root: classes.descriptionContainer }}>
-    //     <Typography variant="h2" paragraph>
-    //       {slides[selectedSlide].description}
-    //     </Typography>
-    //     <Button component={Link} to={slides[selectedSlide].url}>
-    //       <Typography variant="h4" classes={{ root: classes.explore }}>
-    //         Explore
-    //       </Typography>
-    //       <img src={explore} alt="go to product page" />
-    //     </Button>
-    //   </Grid>
-    // </Grid>
+    <Grid
+      container
+      justify={matchesMD ? "space-around" : "space-between"}
+      alignItems="center"
+      classes={{ root: classes.mainContainer }}
+      direction={matchesMD ? "column" : "row"}>
+      <Grid item classes={{ root: classes.carouselContainer }}>
+        {typeof window !== "undefined" ? (
+          <Carousel slides={slides} goToSlide={selectedSlide} />
+        ) : null}
+      </Grid>
+      {/* <Grid item classes={{ root: classes.descriptionContainer }}>
+        <Typography variant="h2" paragraph>
+          {slides[selectedSlide].description}
+        </Typography>
+        <Button component={Link} to={slides[selectedSlide].url}>
+          <Typography variant="h4" classes={{ root: classes.explore }}>
+            Explore
+          </Typography>
+          <img src={explore} alt="go to product page" />
+        </Button>
+      </Grid> */}
+    </Grid>
+
   )
 }
