@@ -24,12 +24,15 @@
       "unique": false
     },
     "category": {
-      "via": "products",
-      "model": "category"
+      "model": "category",
+      "via": "products"
     },
     "variants": {
-      "via": "product",
-      "collection": "variant"
+      "collection": "variant",
+      "via": "product"
+    },
+    "promo": {
+      "type": "boolean"
     }
   }
 }

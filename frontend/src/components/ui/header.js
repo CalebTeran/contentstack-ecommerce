@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //gatsby imports
-import { Link, navigate} from 'gatsby'
+import { Link} from 'gatsby'
 import { useIsClient } from "../../hooks"
 
 // material imports
@@ -97,9 +97,12 @@ export default function Header({ categories }){
   )
 
   return(
-    <AppBar color="transparent" elevation={0}>
+    <AppBar color="transparent" elevation={0} position="static">
       <Toolbar>
-        <Button component={Link} to="/home"  classes={{ root: classes.logoContainer}}>
+        <Button 
+          component={Link} 
+          to="/"
+          classes={{ root: classes.logoContainer}}>
           <Typography variant="h1">
             <span className={classes.logoText}>Calub</span> Shop
           </Typography>
@@ -116,12 +119,34 @@ export default function Header({ categories }){
             >
             <img className={classes.icon} src={action.icon} alt={action.alt}/>
           </IconButton>
-        )}
-          
-        }
-        )
-        }
+          )
+      }
+        })}
       </Toolbar>
     </AppBar>
   )
 }
+
+// if (action.visible) {
+//   return (
+//     <IconButton
+//       onClick={action.onClick}
+//       key={action.alt}
+//       component={action.onClick ? undefined : Link}
+//       to={action.onClick ? undefined : action.link}
+//     >
+//       {action.alt === "cart" ? (
+//         <Badge
+//           key={key}
+//           overlap="circle"
+//           badgeContent={cart.length}
+//           classes={{ badge: classes.badge }}
+//         >
+//           {image}
+//         </Badge>
+//       ) : (
+//         image
+//       )}
+//     </IconButton>
+//   )
+// }

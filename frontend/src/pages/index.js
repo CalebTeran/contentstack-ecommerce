@@ -1,12 +1,13 @@
 import * as React from "react"
 
 import Layout from "../components/ui/layout"
+import HeroBlock from "../components/home/HeroBlock"
+import PromotionalProducts from "../components/home/PromotionalProducts"
 
 const IndexPage = () => (
   <Layout>
-    {/* <h1>Hi people</h1>
-    <p>welcome to your new gatsby project</p>
-    <p>blah blah blah</p> */}
+    <HeroBlock/>
+    <PromotionalProducts/>
   </Layout>
 )
 
