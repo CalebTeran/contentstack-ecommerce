@@ -132,7 +132,7 @@ export default function PromotionalProducts() {
                 }),
               }}
             >
-              <GatsbyImage
+            <GatsbyImage
                 image={image}
                 alt={`image-${i}`}
                 className={classes.carouselImage}
@@ -166,7 +166,7 @@ export default function PromotionalProducts() {
           <Carousel slides={slides} goToSlide={selectedSlide} />
         ) : null}
       </Grid>
-      {/* <Grid item classes={{ root: classes.descriptionContainer }}>
+      <Grid item classes={{ root: classes.descriptionContainer }}>
         <Typography variant="h2" paragraph>
           {slides[selectedSlide].description}
         </Typography>
@@ -176,7 +176,7 @@ export default function PromotionalProducts() {
           </Typography>
           <img src={explore} alt="go to product page" />
         </Button>
-      </Grid> */}
+      </Grid>
     </Grid>
 
   )
